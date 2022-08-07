@@ -1,6 +1,6 @@
 # mc-admin
 
-**Archived repo:** There are no intentions of making any changes/updates, at least in a a short time. - 18th november 2021
+Port for new debian, minecraft and openjdk 17 jdk.
 
 ## Description
 Basic administration bash scripts when Minecraft is running with in a screen on Linux
