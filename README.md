@@ -23,4 +23,5 @@ Remember to set permisions to files. Use crontab with non-root user and execute 
 
 ## Links:
 [Paper.io](https://papermc.io/downloads)
+
 [Paper.io aikar's flags](https://docs.papermc.io/paper/aikars-flags)
