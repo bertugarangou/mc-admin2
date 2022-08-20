@@ -16,6 +16,7 @@ Features:
 * startMC.sh: just start the server. Add it on crontab: `crontab -e` and append `@reboot <route>/startMC.sh`
 
 Known issues:
-- [ ] If you input a letter instead of a number in the menu selection might cause error
+- [ ] If you input a letter instead of a number in the menu selection might cause error.
+- [ ] Make screen not to force-terminate the console. Instead send "stop" and just deatach. It will take up to 10 second to completely stop.
 
 Remember to set permisions to files. Use crontab with non-root user and execute mc-admin or the other tools without sudo if possible.
