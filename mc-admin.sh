@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### Change vars to your values
-minecraft_dir=/home/minecraft 	#Directory where Minecraft files are located
+minecraft_dir=/media/minecraft 	#Directory where Minecraft files are located
 jar_file=paper.jar 		#Minecraft .jar file name
 backup_dir=/home/backups-mc	#Directory where Minecraft will save backups, a folder with the date and time will be created inside
 screen_name=minesrv		#Name of the screen in which Minecraft is running. If you followed Google Cloud guide [1] leave it to mcs
