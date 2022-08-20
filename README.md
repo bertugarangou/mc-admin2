@@ -10,8 +10,9 @@ Features:
 * Access Minecraft console (basically accessing the screen)
 * Copy Minecraft directory to a backup folder
 
-**Note:** It is totaly functional, but do to the lack of time and knowladge some things related to the user interaction do not work.
+## Files:
+** mc-admin.sh: console, start/stop, backup
+** backup.sh: alternative backup
 
 Known issues:
 - [ ] If you input a letter instead of a number in the menu selection might cause error
-- [ ] After finishing the backup the program exits instead of going back to the main menu
