@@ -83,7 +83,7 @@ menu=0
 	                        if [ "y" == "$stop" ]
 							then
 								screen -r "$screen_name" -X stuff 'stop\n'
-								echo "Stoping Minecraft"
+								echo "Stoping Server, it can take some seconds. Check the logs if needed."
 							else
 								echo "Okey, not doing anything"
 							fi;;
