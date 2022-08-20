@@ -65,7 +65,7 @@ then
 	                                        echo "Starting Minecraft..."
 	                                        if cd "$minecraft_dir" #Try to change direcotry, if it does not exist show an error
 	                                        then
-		                                        screen -d -m -S "$screen_name" "$start_command"
+		                                        screen -d -m -S "$screen_name" $start_command
 		                                        echo -e "Screen started with the name $screen_name, in 20-60 seconds it should be working"
 		                                    else
 		                                    	echo -e "Error changing directory to $minecraft_dir"
