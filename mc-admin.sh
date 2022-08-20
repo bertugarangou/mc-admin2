@@ -2,10 +2,10 @@
 
 ### Change vars to your values
 minecraft_dir=/media/minecraft 	#Directory where Minecraft files are located
-jar_file=paper.jar 		#Minecraft .jar file name
-backup_dir=/home/backups-mc	#Directory where Minecraft will save backups, a folder with the date and time will be created inside
-screen_name=minesrv		#Name of the screen in which Minecraft is running. If you followed Google Cloud guide [1] leave it to mcs
-
+jar_file=paper.jar 			    #Minecraft .jar file name
+backup_dir=/media/backups-mc	    #Directory where Minecraft will save backups, a folder with the date and time will be created inside
+screen_name=minesrv			   	#Name of the screen in which Minecraft is running. If you followed Google Cloud guide [1] leave it to mcs
+start_command="java -Xms2G -Xmx6G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar paper.jar --nogui"
 ###
 
 # Functions
@@ -65,7 +65,7 @@ then
 	                                        echo "Starting Minecraft..."
 	                                        if cd "$minecraft_dir" #Try to change direcotry, if it does not exist show an error
 	                                        then
-		                                        screen -d -m -S "$screen_name" java -Xms3G -Xmx8G -d64 -jar "$jar_file" nogui
+		                                        screen -d -m -S "$screen_name" "$start_command"
 		                                        echo -e "Screen started with the name $screen_name, in 20-60 seconds it should be working"
 		                                    else
 		                                    	echo -e "Error changing directory to $minecraft_dir"
