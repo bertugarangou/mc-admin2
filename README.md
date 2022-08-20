@@ -1,6 +1,6 @@
 # MC-ADMIN RLDD
 
-Port for new debian, minecraft and openjdk 17 jdk.
+Port for new debian, Minecraft (from 1.18 Pre-release 2) and openjdk/java 17 jdk.
 
 ## Description
 Basic administration bash scripts when Minecraft is running with in a screen on Linux
@@ -20,3 +20,7 @@ Known issues and pending tasks:
 - [ ] Replace `screen -r` by `screen -r "$screen_name"`
 
 Remember to set permisions to files. Use crontab with non-root user and execute mc-admin or the other tools without sudo if possible.
+
+## Links:
+[Paper.io](https://papermc.io/downloads)
+[Paper.io aikar's flags](https://docs.papermc.io/paper/aikars-flags)
