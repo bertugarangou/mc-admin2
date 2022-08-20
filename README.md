@@ -17,6 +17,6 @@ Features:
 
 Known issues:
 - [ ] If you input a letter instead of a number in the menu selection might cause error.
-- [ ] Make screen not to force-terminate the console. Instead send "stop" and just deatach. It will take up to 10 second to completely stop.
+- [ ] For an unknown reason when stopping, "stopping ~10 log lines" are not saved in the latest.log, is this normal? 
 
 Remember to set permisions to files. Use crontab with non-root user and execute mc-admin or the other tools without sudo if possible.
