@@ -2,24 +2,24 @@
 
 ### Change vars to your values
 minecraft_dir=/home/minecraft 	#Directory where Minecraft files are located
-jar_file=paper.jar 				      #Minecraft .jar file name
-backup_dir=/home/backups-mc		  #Directory where Minecraft will save backups, a folder with the date and time will be created inside
-screen_name=mcs				        	#Name of the screen in which Minecraft is running. If you followed Google Cloud guide [1] leave it to mcs
+jar_file=paper.jar 		#Minecraft .jar file name
+backup_dir=/home/backups-mc	#Directory where Minecraft will save backups, a folder with the date and time will be created inside
+screen_name=minesrv		#Name of the screen in which Minecraft is running. If you followed Google Cloud guide [1] leave it to mcs
 
-#[1] https://cloud.google.com/solutions/gaming/minecraft-server
 ###
 
 # Functions
 
 function print_name(){
 	cat << EOF
----------------------------------------------------
-|   __  __  ___        _   ___  __  __ ___ _  _   |
-|  |  \/  |/ __| __   /_\ |   \|  \/  |_ _| \| |  |
-|  | |\/| | (_  |___|/ _ \| |) | |\/| || ||    |  |
-|  |_|  |_|\___|    /_/ \_\___/|_|  |_|___|_|\_|  |
-|  BY MVALSELLS                                   |
----------------------------------------------------
+-------------------------------------------------------------------------
+  __  __  ____        _    ____  __  __ ___ _   _   ____  _     _     _
+ |  \/  |/ ___|      / \  |  _ \|  \/  |_ _| \ | | |  _ \| | __| | __| |
+ | |\/| | |   _____ / _ \ | | | | |\/| || ||  \| | | |_) | |/ _\ |/ _\ |
+ | |  | | |__|_____/ ___ \| |_| | |  | || || |\  | |  _ <| | (_| | (_| |
+ |_|  |_|\____|   /_/   \_\____/|_|  |_|___|_| \_| |_| \_\_|\__,_|\__,_|
+ By MVALSELLS and updated by Carquinyolis
+-------------------------------------------------------------------------
 
 EOF
 }
@@ -35,7 +35,7 @@ Main menu
 4. Make backup
 5. Exit
 ----
-Input menu option number [1-5]: 
+Input menu option number [1-5]:
 EOF
 }
 
@@ -52,7 +52,7 @@ then
                 read -r menu
                 case "$menu" in
                         1)
-                                
+
 								#Check if SCREEN is already running
 
 								if [ "$(screen -list | grep "$screen_name" -c)" -eq 0 ]
@@ -65,7 +65,7 @@ then
 	                                        echo "Starting Minecraft..."
 	                                        if cd "$minecraft_dir" #Try to change direcotry, if it does not exist show an error
 	                                        then
-		                                        screen -d -m -S "$screen_name" java -Xms2G -Xmx10G -d64 -jar "$jar_file" nogui
+		                                        screen -d -m -S "$screen_name" java -Xms3G -Xmx8G -d64 -jar "$jar_file" nogui
 		                                        echo -e "Screen started with the name $screen_name, in 20-60 seconds it should be working"
 		                                    else
 		                                    	echo -e "Error changing directory to $minecraft_dir"
@@ -78,7 +78,7 @@ then
 	                            	echo -e "It looks like theres is screen running which the name contains $screen_name"
 	                            	echo "Not doing anything"
 	                            fi;;
-                        
+
 	                    2)
 							echo "Do you want to stop Minecraft server? [y/n]"
 	                        read -r stop
@@ -93,7 +93,7 @@ then
 							#Remember user how to deatach form screen
                             echo -e "Accessing Minecraft console..."
                             echo -e "-------------------------------------------------------------\nIMPORTANT!!!"
-                            echo -e "Remember that in order to exit you need to press ctrl+a followed by d"
+                            echo -e "To exit press ctrl+a followed by d"
                             echo -e "-------------------------------------------------------------\nPress enter key to continue"
                             read
                             screen -r "$screen_name";;
@@ -101,7 +101,7 @@ then
 							backup_dir="$backup_dir/$(date +%Y-%m-%d--%H-%M-%S)" #Adding time to backup dir
                             mkdir -p "$backup_dir"
 							echo -e "Starting backup, be patient...\nI will tell you once I have finished\n.\n..\n..."
-                            
+
 
                             #Check if the backup has done correctly
                             if cp -rf "$minecraft_dir/"* "$backup_dir"
@@ -122,7 +122,7 @@ then
         done
 else
         print_name
-        echo -e "You need to be root in order to start MC-ADMIN"
+        echo -e "You need to be root in order to start mc-admin"
         exit 1
 fi
 ## Exit Codes
