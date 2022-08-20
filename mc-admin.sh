@@ -42,8 +42,6 @@ EOF
 #Main code
 
 menu=0
-if [ 0 == $UID ]
-then
         while [ $menu -ne 4 ]
         do
                 clear
@@ -120,10 +118,3 @@ then
 		echo -e "Press enter key to get back to the main menu"
 		read
         done
-else
-        print_name
-        echo -e "You need to be root in order to start mc-admin"
-        exit 1
-fi
-## Exit Codes
-# 1 - Must be run as root
