@@ -15,7 +15,8 @@ Features:
 * backup.sh: alternative backup
 * startMC.sh: just start the server. Add it on crontab: `crontab -e` and append `@reboot <route>/startMC.sh`
 
-Known issues:
+Known issues and pending tasks:
 - [ ] If you input a letter instead of a number in the menu selection might cause error.
+- [ ] Replace `screen -r` by `creen -r "$screen_name"`
 
 Remember to set permisions to files. Use crontab with non-root user and execute mc-admin or the other tools without sudo if possible.
