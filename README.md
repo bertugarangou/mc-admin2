@@ -1,4 +1,4 @@
-# MC-ADMIN RLDD
+# MC-ADMIN RLD
 
 Port for new debian, Minecraft (from 1.18 Pre-release 2) and openjdk/java 17 jdk.
 
