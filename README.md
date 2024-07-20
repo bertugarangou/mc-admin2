@@ -14,6 +14,23 @@ This is a personal use script, don't expect to include a 100% working instructio
 * Access the Minecraft console (basically accessing the screen)
 * ~~Copy Minecraft directory to a backup folder~~ Too complicate to standarize it since I need to stop the server, mount an external SSD to a virtual cluster or NFS/SMB bla bla bla won't scalate it.
 
+## Usage:
+Full commands:
+`minecraft start`: Starts minecraft server
+`minecraft stop`: Stops minecraft server
+`minecraft console` or `minecraft shell` or `minecraft screen`: Launches the console. To detach from screen: `Ctr+a` and then `d`.
+`minecraft ?` or `minecraft status`: Shows if the screen with the server is running.
+
+Others:
+`minecraft <anything>`: Show help
+`minecraft`: Show title
+
+Aliases through .bashrc:
+`start`: Same as `minecraft start`.
+`stop`: Same as `minecraft stop`.
+`status`: Same as `minecraft status`.
+`shell`: Same as `minecraft shell`.
+
 ## Files:
 * minecraft: Main script file. Save it werever you want.
 
@@ -97,3 +114,38 @@ Example: I tend to give 6GB but I only want to firstly reserve 3GB. Thus I use: 
 If using Paper, Vanilla, Spiggot or any modern non-network-alterable server (like proxies or somethign for hughe server), DO NOT give more than 8G. Minecraft does not know how to propperly work with more than 8GB. However if you use plugins that needs more RAM/virtual memory and creates parallel processes (Ex: dynmap that creates a webserver, thread improver plugins, security...) it's okay to extend to 12 or even 16G since Minecraft is not going to take advantage of the increase but will the parallel threads of the plugins.
 
 To sum up: do whatever yo want.
+
+## Other procedures:
+* Enable UFW
+```
+     To                         Action      From
+     --                         ------      ----
+[ 1] 25565/tcp                  ALLOW IN    Anywhere
+[ 2] 22/tcp                     ALLOW IN    <LAN>/24
+[ 3] 8123/tcp                   ALLOW IN    <LAN>/24
+```
+
+* Enable hosts.allow and hosts.deny (can be done using UFW)
+  * `/etc/hosts.allow`:
+  ```
+  sshd : <LAN>/24
+  ```
+  
+  * `/etc/hosts.deny`:
+  ```
+  sshd : ALL
+  ```
+
+* Set MOTD
+  Save the content of the `motd` folder in:
+  Ubuntu: `/etc/update-motd.d/00-minecraft`
+  And remove 00-headers or edit it to include the content from the 00-minecraft.
+  
+* Install unatteded-upgrades
+  On Ubuntu/Debian:
+  ```
+  apt install unatteded-upgrades -y
+  systemctl enable unnatteded-upgrades
+  systemctl restart unnatteded-upgrades
+  ```
+  No additional unnatteded-upgrades config needed, By default security updates are enabled.
