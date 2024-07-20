@@ -1,0 +1,46 @@
+#!/bin/bash
+#Colors
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+
+#Variables
+start_command='java -Xms3G -Xmx6G -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1HeapRegionSize=8M -XX:G1HeapWastePercent=5 -XX:G1MaxNewSizePercent=40 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1NewSizePercent=30 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -XX:MaxGCPauseMillis=200 -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=32 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar paper-1.21-XX.jar nogui'
+
+if [ $# -eq 0 ]; then
+    echo -e "${YELLOW}Fes 'minecraft help' per saber com funciona.${NC}"
+    exit 1
+fi
+
+case "$1" in
+    start)
+        cd /home/minecraft/server
+        if sudo -u minecraft screen -list | grep -q "\.minecraft\s" ; then
+            echo -e "${YELLOW}El servidor ja s'estava executant.${NC}"
+        else
+            sudo -u minecraft screen -dmS "minecraft" $start_command
+            echo -e "${YELLOW}Servidor iniciat.${NC}"
+        fi
+        ;;
+    stop)
+        screen -x minecraft/"minecraft" -X stuff 'stop\n'
+        ;;
+    console|shell|screen)
+        echo -e "${YELLOW}Per sortir fes ${GREEN}'CTR+a' i 'd'${YELLOW}. Estas en una 'screen'.${NC}"
+        screen -x minecraft/"$screen_name"
+
+        ;;
+    ?|status)
+        if sudo -u minecraft screen -list | grep -q "\.minecraft\s"; then
+            echo -e "${YELLOW}Server: ${GREEN}running${NC}"
+        else
+            echo -e "${YELLOW}Server: ${RED}stopped${NC}"
+        fi
+        ;;
+    *)
+        echo -e "${YELLOW}Opcio invalida: $1"
+        echo -e "Usage: $0 { start | stop | status | console,shell,screen }${NC}"
+        exit 1
+        ;;
+esac
