@@ -31,10 +31,7 @@ Aliases through .bashrc:
 `status`: Same as `minecraft status`.
 `shell`: Same as `minecraft shell`.
 
-## Files:
-* minecraft: Main script file. Save it werever you want.
-
-Remember to set permissions for files. Use crontab with a non-root user and execute minecraft scripts or the other tools without sudo if possible.
+## Remember to set permissions for files. Use crontab with a non-root user and execute minecraft scripts or the other tools without sudo if possible.
 * Everything on /home/minecraft:
   sudo chown v minecraft:minecraft /home/minecraft
 
@@ -136,12 +133,12 @@ To sum up: do whatever yo want.
   sshd : ALL
   ```
 
-* Set MOTD
+* Set MOTD: 
   Save the content of the `motd` folder in:
   Ubuntu: `/etc/update-motd.d/00-minecraft`
   And remove 00-headers or edit it to include the content from the 00-minecraft.
   
-* Install unatteded-upgrades
+* Install unatteded-upgrades: 
   On Ubuntu/Debian:
   ```
   apt install unatteded-upgrades -y
