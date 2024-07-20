@@ -15,21 +15,22 @@ This is a personal use script, don't expect to include a 100% working instructio
 * ~~Copy Minecraft directory to a backup folder~~ Too complicate to standarize it since I need to stop the server, mount an external SSD to a virtual cluster or NFS/SMB bla bla bla won't scalate it.
 
 ## Usage:
-Full commands:
-`minecraft start`: Starts minecraft server
-`minecraft stop`: Stops minecraft server
-`minecraft console` or `minecraft shell` or `minecraft screen`: Launches the console. To detach from screen: `Ctr+a` and then `d`.
-`minecraft ?` or `minecraft status`: Shows if the screen with the server is running.
+Full commands:  
+`minecraft start`: Starts minecraft server  
+`minecraft stop`: Stops minecraft server  
+`minecraft console` or `minecraft shell` or `minecraft screen`: Launches the console.  
+To detach from screen: `Ctr+a` and then `d`.  
+`minecraft ?` or `minecraft status`: Shows if the screen with the server is running.  
 
-Others:
-`minecraft <anything>`: Show help
-`minecraft`: Show title
+Others:  
+`minecraft <anything>`: Show help  
+`minecraft`: Show title  
 
-Aliases through .bashrc:
-`start`: Same as `minecraft start`.
-`stop`: Same as `minecraft stop`.
-`status`: Same as `minecraft status`.
-`shell`: Same as `minecraft shell`.
+Aliases through .bashrc:  
+`start`: Same as `minecraft start`.  
+`stop`: Same as `minecraft stop`.  
+`status`: Same as `minecraft status`.  
+`shell`: Same as `minecraft shell`.  
 
 ## Remember to set permissions for files. Use crontab with a non-root user and execute minecraft scripts or the other tools without sudo if possible.
 * Everything on /home/minecraft:
