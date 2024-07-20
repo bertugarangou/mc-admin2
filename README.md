@@ -94,6 +94,16 @@ Starting from root user:
    
 9. Something more I just forgot.
 
+10. Extras: Add removeOldLogs.sh in `tools` directory
+11. Add script to `crontab`
+    From root user:
+    `crontab -e`
+    Add:
+    ```
+    0 0 * * * /home/minecraft/tools/removeOldLogs.sh >/dev/null 2>&1
+    ```
+    When writting this instructions, I am not use why I added the `>/dev/null`, I compeltely forgot. The `2>&1` is to include errors on the cast. I also forgot why I had to cast/echo the result to null.
+
 Don't forget to give server.jar ownershipt and execution permissions after every update.
 
 ## Useful Links:
