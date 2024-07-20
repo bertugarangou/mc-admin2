@@ -9,7 +9,7 @@ So I wanted to create a systemd daemon (in Ubuntu) to run a Minecraft server. Af
 
 This is a personal use script, don't expect to include a 100% working instructions, a project, wiki, issues... Just do whatever the fk you want with this, and give attribution if you desire. I may maintain it if I become famous (I won't). Have fun.
 
-Features:
+## Features:
 * Start/stop Minecraft
 * Access the Minecraft console (basically accessing the screen)
 * ~~Copy Minecraft directory to a backup folder~~ Too complicate to standarize it since I need to stop the server, mount an external SSD to a virtual cluster or NFS/SMB bla bla bla won't scalate it.
@@ -21,7 +21,7 @@ Remember to set permissions for files. Use crontab with a non-root user and exec
 * Everything on /home/minecraft:
   sudo chown v minecraft:minecraft /home/minecraft
 
-# Instructions:
+## Instructions:
 Starting from root user:
 0. Install openjdk (or Oracle Java) JDK. [Link to Adoptium for LINUX](https://adoptium.net/installation/linux/)
 
