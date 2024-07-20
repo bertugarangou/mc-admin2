@@ -1,4 +1,4 @@
-# Minecraft Linux Scripts
+# Minecraft Server LINUX Scripts
 
 Minecraft server console launcher and command executor
 
