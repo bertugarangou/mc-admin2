@@ -1,0 +1,21 @@
+#!/bin/sh
+echo
+echo "=========================================================="
+OS_VERSION=$(lsb_release -d | awk -F"\t" '{print $2}')
+KERNEL_VERSION=$(uname -r)
+ARCHITECTURE=$(uname -m)
+echo "Welcome to ${OS_VERSION} (GNU/Linux ${KERNEL_VERSION} ${ARCHITECTURE})"
+echo
+echo "Hostname: $(hostname).$(sed -n '/^search/s/^search\s*//p' /etc/resolv.conf)"
+echo
+echo "Servidor Minecraft escoltant a:"
+echo "-> mc.$(sed -n '/^search/s/^search\s*//p' /etc/resolv.conf)"
+echo "-> $(hostname -I)"
+echo "-> $(wget -qO- https://ifconfig.me/ip)"
+echo
+echo "Port     MC: 25565"
+echo "Port Dynmap: 8123"
+echo
+echo "UFW $(ufw status | grep -i 'Status:')"
+echo "Configuracions extres a /etc/hosts.allow-deny"
+exit 0
